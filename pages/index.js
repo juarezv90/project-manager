@@ -1,9 +1,9 @@
 import Head from "next/head";
-import { useReducer, useState } from "react";
+import React, { useReducer, useState } from "react";
 import { projectReducer, initialState } from "./state/projectState";
 
 export default function Home() {
-  const [state, dispatcher] = useReducer(projectReducer, initialState);
+  const [state, dispatch] = useReducer(projectReducer, initialState);
   const [showProjectForm, setShowProjectForm] = useState(true);
 
   const [project, setProject] = useState({
@@ -13,7 +13,7 @@ export default function Home() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatcher({type:"ADD", payload:project})
+    dispatch({type: 'ADD', payload: project})
   }
   const handleChange = (event) =>{
     setProject({...project, [event.target.name]: event.target.value})
