@@ -5,7 +5,14 @@ import { projectReducer, initialState } from "./state/projectState";
 
 export default function Home() {
   const [state, dispatch] = useReducer(projectReducer, initialState);
-  const [showProjectForm, setShowProjectForm] = useState(true);
+  const [showProjectForm, setShowProjectForm] = useState();
+
+  function showForm() {
+    setShowProjectForm( { form: 
+      <CreateProject dispatch={dispatch}  destroy={setShowProjectForm} key={0}/>
+    } )
+    
+  }
 
   return (
     <>
@@ -22,11 +29,11 @@ export default function Home() {
             <p key={id}>{project.title}</p>
           )})
         }
-        <button className="bg-slate-400 rounded-lg p-1 shadow-md border-slate-900 border-[1px]">
+        <button className="bg-slate-400 rounded-lg p-1 shadow-md border-slate-900 border-[1px]" onClick={showForm}>
           New Project
         </button>
         <div>
-          <CreateProject dispatch={dispatch}/>
+          {showProjectForm?.form}
         </div>
       </div>
     </>
