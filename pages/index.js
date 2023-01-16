@@ -22,7 +22,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       {console.log(state)}
-      <div className="w-[1280px] mx-auto">
+
+      <div className="w-full">
+        
+      <div className="max-w-[1280px] mx-auto">
         <p>Project List:</p> 
         {state?.map((project, id)=>{
           return(
@@ -36,6 +39,8 @@ export default function Home() {
           {showProjectForm?.form}
         </div>
       </div>
+      </div>
+
     </>
   );
 }
