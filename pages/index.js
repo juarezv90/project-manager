@@ -1,23 +1,11 @@
 import Head from "next/head";
 import React, { useReducer, useState } from "react";
+import CreateProject from "../components/CreateProject";
 import { projectReducer, initialState } from "./state/projectState";
 
 export default function Home() {
   const [state, dispatch] = useReducer(projectReducer, initialState);
   const [showProjectForm, setShowProjectForm] = useState(true);
-
-  const [project, setProject] = useState({
-    title:"",
-    id: 0,
-  })
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch({type: 'ADD', payload: project})
-  }
-  const handleChange = (event) =>{
-    setProject({...project, [event.target.name]: event.target.value})
-  }
 
   return (
     <>
@@ -26,7 +14,9 @@ export default function Home() {
         <meta name="description" content="Next.js Project Manager" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+      {console.log(state)}
       <div className="w-[1280px] mx-auto">
+        <p>Project List:</p> 
         {state?.map((project, id)=>{
           return(
             <p key={id}>{project.title}</p>
@@ -36,16 +26,7 @@ export default function Home() {
           New Project
         </button>
         <div>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              className="border-[1px] m-2"
-              name="title"
-              placeholder="Project Title"
-              onChange={handleChange}
-            />
-            <button className="block">Submit</button>
-          </form>
+          <CreateProject dispatch={dispatch}/>
         </div>
       </div>
     </>
