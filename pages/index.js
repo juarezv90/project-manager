@@ -32,7 +32,7 @@ export default function Home() {
             <p key={id}>{project.title}</p>
           )})
         }
-        <button className="bg-slate-400 rounded-lg p-1 shadow-md border-slate-900 border-[1px]" onClick={showForm}>
+        <button className="bg-slate-400 rounded-lg p-1 shadow-md border-slate-900 border-[1px]" onClick={showForm} onLoad={showForm}>
           New Project
         </button>
         <div>

@@ -6,8 +6,6 @@ const CreateProject = ({ dispatch, destroy }) => {
     task: [],
     id: Date.now()
   });
-
-  const [taskItem, setTaskItem] = useState("");
   const [tags, setTags] = useState([]);
 
   function handleSubmit(event) {
@@ -48,27 +46,11 @@ const CreateProject = ({ dispatch, destroy }) => {
     }, 250);
   }
 
-  function handleTask() {
-    setProject({
-      ...project,
-      task: [...project?.task, taskItem]
-    });
-    setTaskItem("");
-  }
-
   return (
     <div className="w-[100%] ">
       <form onSubmit={handleSubmit} className="flex flex-col w-[400px] mx-auto">
         <p>Project Title</p>
-        <input
-          type="text"
-          name="title"
-          className="border my-2 max-w-[200px] rounded"
-          placeholder="Project Title"
-          value={project.title}
-          onChange={handleChange}
-          required
-        />
+        {projectTitle(project, handleChange)}
         <p>Project Description:</p>
         <textarea
           name="description"
@@ -105,36 +87,15 @@ const CreateProject = ({ dispatch, destroy }) => {
             </p>
           ))}
         </span>
-        <p>Task:</p>
-        <span>
-          <input
-            type="text"
-            name="tasks"
-            className="border my-2 max-w-[200px] rounded"
-            onChange={(e) => setTaskItem(e.target.value)}
-            value={taskItem}
-          />
+        <p>
+          Task:
           <input
             form="tasks"
             type="button"
             value="+"
             className="border mx-2 rounded px-2 cursor-pointer"
-            onClick={handleTask}
           />
-          {project.task.map((task, id) => (
-            <p
-              key={id}
-              onClick={() => {
-                setProject({
-                  ...project,
-                  task: project.task.filter((e, key) => key !== id)
-                });
-              }}
-            >
-              {task}
-            </p>
-          ))}
-        </span>
+        </p>
         <span className="flex">
           <button
             type="submit"
@@ -155,3 +116,17 @@ const CreateProject = ({ dispatch, destroy }) => {
 };
 
 export default CreateProject;
+
+function projectTitle(project, handleChange) {
+  return (
+    <input
+      type="text"
+      name="title"
+      className="border my-2 max-w-[200px] rounded"
+      placeholder="Project Title"
+      value={project.title}
+      onChange={handleChange}
+      required
+    />
+  );
+}
