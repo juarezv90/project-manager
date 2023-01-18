@@ -23,16 +23,16 @@ export default function Home() {
       </Head>
       {console.log(state)}
 
-      <div className="w-full">
+      <div className="w-full h-screen">
         
       <div className="max-w-[1280px] mx-auto">
-        <p>Project List:</p> 
+        <p className="ml-2">Project List:</p> 
         {state?.map((project, id)=>{
           return(
-            <p key={id}>{project.title}</p>
+            <p key={id} className="ml-2">{project.title}</p>
           )})
         }
-        <button className="bg-slate-400 rounded-lg p-1 shadow-md border-slate-900 border-[1px]" onClick={showForm} onLoad={showForm}>
+        <button onClick={showForm} onLoad={showForm}>
           New Project
         </button>
         <div>

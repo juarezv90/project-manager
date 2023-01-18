@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-slate-200;
+    }
+
+   input[type=button],  button {
+        @apply bg-white mx-1 rounded px-2 shadow-md border-slate-900 border ml-2 hover:bg-blue-200;
+    }
+
+    textarea {
+        @apply border my-2 resize-none rounded px-2 w-[100%];
+    }
+}
