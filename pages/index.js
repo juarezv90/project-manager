@@ -38,11 +38,11 @@ export default function Home() {
                 <p  className="ml-2">
                   {project.title}
                 </p>
-                <CgRemoveR className="ml-4 text-red-500 rounded"/>
+                <CgRemoveR className="ml-4 text-red-500 rounded" onClick={() => dispatch({type: "REMOVE", payload: project.id})}/>
               </div>
             );
           })}
-          <button onClick={showForm} onLoad={showForm}>
+          <button onClick={showForm} onLoad={showForm} className="my-4">
             New Project
           </button>
           <div>{showProjectForm?.form}</div>
