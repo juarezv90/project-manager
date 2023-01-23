@@ -9,7 +9,7 @@ export const projectReducer = (state, action) => {
             )
         case "REMOVE":
             return(
-               state.filter((project)=> project.id !== action.payload.id)
+               state.filter((project)=> project.id !== action.payload)
             )    
         default:
             return(state)
