@@ -41,7 +41,7 @@ export default function Home() {
           <p className="ml-2">Project List:</p>
           {state?.map((project) => {
             return (
-              <div key={project.id} className="flex items-center">
+              <div key={project.id} className="flex items-center cursor-pointer">
                 <p  className="ml-2" onClick={() => setProjectDisplay(project)}>
                   {project.title}
                 </p>

@@ -6,7 +6,7 @@
       "tags": ["treat", "tile", "homework"],
       "description": "this will not work the way you want",
       "taskList": ["trauma"],
-      "trauma": "this is the test task"
+      "task0": "this is the test task"
     },
     {
         "title": "Clean the Code",
@@ -14,8 +14,8 @@
         "tags": ["treat", "tile", "homework"],
         "description": "this will not work the way you want",
         "taskList": ["Code Trade", "treat"],
-        "CodeTrade": "Make Changes to what needs to be done",
-        "treat": "another task on the list"
+        "task0": "Make Changes to what needs to be done",
+        "task1": "another task on the list"
       }
   ]
 }
