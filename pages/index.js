@@ -50,11 +50,11 @@ export default function Home() {
             );
           })}
           
-          <button onClick={showForm} onLoad={showForm} className="my-4">
+          <button onClick={showForm} className="my-4">
             New Project
           </button>
           <div>{showProjectForm?.form}</div>
-          <div className="flex">{projectDisplay !== null ? <DisplayProject project={projectDisplay} /> : null}</div>
+          <div className="flex">{projectDisplay && <DisplayProject project={projectDisplay} />}</div>
         </div>
       </div>
     </>
